@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=800">
     <link rel="apple-touch-icon" href="./Assets/UI/RogueSiteBtn.webp">
     <link rel="stylesheet" href="./src/reset.css">
-    <link rel="stylesheet" href="./src/minified.css">
+    <link rel="stylesheet" href="./src/style.min.css">
     <style>
         .loading-div {
             position: fixed;
@@ -70,21 +70,6 @@
             text-shadow: 0 0 5px black;
             margin-top: 24vh;
             margin-left: -1.5vh;
-        }
-
-        .page-extra {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px 10px;
-        }
-
-        .rounds-site-desc {
-            font-family: GardeniaBold;
-            color: white;
-            font-size: 18px;
-            line-height: 20px;
-            margin: 5px;
         }
 
         @keyframes loadglow {
@@ -222,7 +207,7 @@
     </style>
 </head>
 
-<body>
+<body class="hex-bg">
     <div id="loading" class="loading-div">
         <div class="loading-icon">
             <!-- <div class="loading-glow"></div> -->
@@ -231,15 +216,36 @@
             <p class="loading-text">LOADING...</p>
         </div>
     </div>
+    <div class="header">
+        <div class="header-div">
+            <h1 class="title">Rogue Legends Artifacts</h1>
+        </div>
+        <div class="header-container"></div>
+    </div>
+    <div class="content">
+        <div id="home-content" class="front-page" style="display: none;"></div>
+        <div id="extras-content" class="content-div extras" style="display: none;"></div>
+        <div id="rogue-content" class="content-div extras" style="display: flex;"></div>
+        <div id="artifacts-content" class="content-div extras" style="display: none;"></div>
+        <div id="starter-kits-content" class="content-div extras" style="display: none;"></div>
+    </div>
+    <div id="rogue-image-wrapper" class="rogue-image-wrapper" style="overflow: hidden;">
+        <div id="rogue-image-content" class="rogue-image-content" style="display: none; opacity: 0;"></div>
+    </div>
 </body>
+<script src="./src/html-to-image.min.js"></script>
+<script src="./src/popper.min.js"></script>
+<script src="./src/tippy-bundle.umd.min.js"></script><script src="./src/rogue.min.js"></script>
+
+
+
+
+
+
 <script>
     document.getElementById("loading").style.transform = "scale(0)";
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+    generateRogueSelectors();
 </script>
-<script src="./src/popper.min.js"></script>
-<script src="./src/tippy-bundle.umd.min.js"></script>
-<script src="./src/html-to-image.min.js"></script>
-<script src="./src/rogue.min.js"></script>
-
 </html>
