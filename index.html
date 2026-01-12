@@ -7,6 +7,11 @@
     <link rel="apple-touch-icon" href="./Assets/UI/SiteBtn.webp">
     <link rel="stylesheet" href="./src/reset.css">
     <link rel="stylesheet" href="./src/style.min.css">
+    <link rel="preload" href="./Assets/UI/BlueBtnSquare.webp" as="image">
+    <link rel="preload" href="./Assets/UI/BarfillContainer.webp" as="image">
+    <link rel="preload" href="./Assets/UI/BarfillVeteranContainer.webp" as="image">
+    <link rel="preload" href="./Assets/UI/RogueBgPanelSml.webp" as="image">
+    <link rel="preload" href="./Assets/UI/BlueprintPanel.webp" as="image">
     <style>
         .loading-div {
             position: fixed;
@@ -265,8 +270,8 @@
 
 <script>
     document.getElementById("loading").style.transform = "scale(0)";
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    addEventListener("resize", (event) => { document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`); })
     showLoading();
     fetchConstants().then(() => {
         hideLoading();
